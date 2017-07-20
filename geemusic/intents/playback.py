@@ -154,6 +154,30 @@ def currently_playing():
                        large_image_url=thumbnail)
 
 
+@ask.intent('GeeMusicListAllPlaylists')
+def listAllPlaylists():
+    if api.is_indexing():
+        return statement("Please wait for your tracks to finish indexing")
+
+    all_playlists = api.get_all_user_playlist_contents()
+    playlist_names = []
+    for i, match in enumerate(all_playlists):
+
+        playlist_names.append(match['name'])
+        totalPlaylists = i + 1
+
+    # Adds "and" before the last playlist to sound more natural when speaking
+    if len(playlist_names) >= 3:
+        andPlacement = len(playlist_names) - 1
+        playlist_names.insert(andPlacement, 'and')
+
+    app.logger.debug(playlist_names)
+    playlist_names = ', '.join(playlist_names)
+
+    speech_text = "You have %s playlists in your library. They are in no apparent order, %s." % (totalPlaylists, playlist_names)
+    return statement(speech_text)
+
+
 @ask.intent("GeeMusicThumbsUpIntent")
 def thumbs_up():
     if len(queue.song_ids) == 0:
