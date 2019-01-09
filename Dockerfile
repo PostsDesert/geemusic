@@ -10,10 +10,10 @@ RUN apk update \
 COPY . /geemusic
 WORKDIR /geemusic
 
-RUN pip3 install -r requirements.txt \
+RUN pip3 install -U 'pip<10' && pip3 install -r requirements.txt \
  && gem install foreman
 
-EXPOSE 4000
+EXPOSE 5000
 
 # Make sure to run with the GOOGLE_EMAIL, GOOGLE_PASSWORD, and APP_URL environment vars!
 ENTRYPOINT ["/usr/bin/dumb-init"]
