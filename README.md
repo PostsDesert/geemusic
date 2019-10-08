@@ -65,8 +65,6 @@ Of course you can also say things like "Alexa stop," "Alexa next," etc.
 Play a station for bedtime
 Play a station for partying
 ```
-- [ ] Play a station for bedtime
-- [ ] Play a station for partying
 
 ## Setup
 Let's cut right to the chase: how can you enable this skill on your own Dot/Echo? Unfortunately the process is a bit finicky, but I'll try to make it as simple as I can.
@@ -146,11 +144,11 @@ See the note at the top about supported languages.
 
 #### US English users
 
-On the "Interaction Model" step, paste in the contents of `speech_assets/interactionModel.json` to the JSON Editor.
+On the "Interaction Model" step, paste in the contents of [`speech_assets/interactionModel.json`](https://raw.githubusercontent.com/stevenleeg/geemusic/master/speech_assets/interactionModel.json) to the JSON Editor.
 
 #### Other language users
 
-On the "Interaction Model" step, paste in the contents of `speech_assets/non_us_custom_slot_version/interactionModel.json` to the JSON Editor.
+On the "Interaction Model" step, paste in the contents of [`speech_assets/non_us_custom_slot_version/interactionModel.json`](https://raw.githubusercontent.com/stevenleeg/geemusic/master/speech_assets/non_us_custom_slot_version/interactionModel.json) to the JSON Editor.
 
 
 ### Configuration
